@@ -13,7 +13,7 @@ if (process.env.NODE_ENV === 'production') {
 }
 app.use(routes);
 
-mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost/googlebooklist');
+mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost/googlebooks');
 
 app.get('*', function(req, res) {
 	res.sendFile(path.join(__dirname, './client/build/index.html'));
