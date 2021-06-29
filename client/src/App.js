@@ -1,12 +1,15 @@
 import React from 'react';
-import { Card, CardHeader, CardContent, Container } from '@material-ui/core';
-import { Typography } from '@material-ui/core';
-
+import { Card, Container } from '@material-ui/core';
+import Saved from './components/Saved';
+import Header from './components/Header';
+import Nav from './components/Nav';
+import './styles/styles.css';
 function App() {
 	return (
-		<Container>
-			<Card />
-		</Container>
+		<div>
+			<Header />
+			<Nav />
+		</div>
 	);
 }
 
