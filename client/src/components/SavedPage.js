@@ -26,7 +26,7 @@ class SavedPage extends React.Component {
 	render(){
 		return (
 			<Container maxWidth="md">
-				
+				<h1 id= "saved-title">Your Saved Books</h1>
 					<Grid container direction="column" justify="center">
 					<Grid container direction="column" justify="center">
                     {this.state.savedBooks === undefined || this.state.savedBooks.length === 0 ? <h1>No Books saved!</h1> : this.state.savedBooks.map((book, i) => {

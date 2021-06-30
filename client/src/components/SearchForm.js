@@ -3,8 +3,8 @@ import React from "react";
 function SearchForm({handleInputChange, search, handleFormSubmit}) {
   return (
     <form>
-      <div className="form-group">
-        <label htmlFor="search">Search:</label>
+      <div className="form-group search-form">
+        
         <input
           onChange={handleInputChange}
           value={search}
