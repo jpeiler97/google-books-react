@@ -33,7 +33,7 @@ function Saved({title, authors, description, image, link}) {
 							
 							<Box className= {classes.infoBox}>
 							<CardContent>{title}</CardContent>
-							<CardContent>by {authors}</CardContent>
+							<CardContent>by {authors.length === 0 ? 'Author Not Provided' : authors.map((author, i) => <span key={i}>{author}{i !== authors.length-1 ? ', ' : ''}</span>) }</CardContent>
 							<CardContent>{description}</CardContent>
 							<img src={image}></img>
 							<a href={link}></a>
@@ -41,7 +41,7 @@ function Saved({title, authors, description, image, link}) {
 							
 							<Box>
 							<Button className={classes.button}>Delete</Button> 
-							<Button className={classes.button}>View</Button>
+							<Button className={classes.button} href={link}>View</Button>
 							</Box>
 						
 						</Grid>
