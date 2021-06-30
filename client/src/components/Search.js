@@ -1,5 +1,5 @@
 import React from 'react';
-import { Grid, Card, Box, CardContent} from '@material-ui/core';
+import { Grid, Card, Box, CardContent, Button} from '@material-ui/core';
 import { makeStyles } from '@material-ui/core/styles';
 
 const useStyles = makeStyles({
@@ -10,7 +10,7 @@ const useStyles = makeStyles({
 		width: 500
 	}
 });
-function Search({title, authors, description, image, link}) {
+function Search({title, authors, description, image, link, handleBookSave}) {
 	const classes = useStyles();
 
 	return (
@@ -27,7 +27,7 @@ function Search({title, authors, description, image, link}) {
 							<img src={image}></img>
 							<a href={link}>Link</a>
 							</Box>
-						
+                            <Button onClick={ handleBookSave} className={classes.button}>Save</Button>
 						</Grid>
 						
 					</Card>
