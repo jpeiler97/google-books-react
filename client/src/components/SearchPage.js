@@ -11,9 +11,6 @@ class SearchPage extends React.Component {
       };
 
       
-      componentDidMount() {
-        this.search("books");
-      }
 
       search = query => {
         API.getResults(query)
@@ -39,7 +36,7 @@ class SearchPage extends React.Component {
                 
                     <SearchForm handleFormSubmit={this.handleFormSubmit} search={this.state.search} handleInputChange={this.handleInputChange}></SearchForm>
                     <Grid container direction="column" justify="center">
-                    {this.state.results.map(result => {
+                    {(this.state.results === undefined || this.state.results.length === 0) ? <h1>No Books!</h1> : this.state.results.map(result => {
                         return <Search key={result.volumeInfo.infoLink} title={result.volumeInfo.title} authors={result.volumeInfo.authors} description={result.volumeInfo.description}
                         image={result.volumeInfo.imageLinks === undefined ? 'http://lgimages.s3.amazonaws.com/nc-md.gif' : result.volumeInfo.imageLinks.smallThumbnail } link= {result.volumeInfo.infoLink}></Search>
                     })}
