@@ -3,7 +3,7 @@
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
 ## Description
-This is a React app which uses the Google Books API to allow users to search for a book. Through MongoDB, the user can then save the books to a personal list and delete books from that list.
+This is a React app which uses the Google Books API to allow users to search for a book. Through MongoDB, the user can then save the books to a personal list and delete books from that list. It is primarly styled using the Material UI.
 
 ## Table of Contents
 
