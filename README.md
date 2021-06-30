@@ -22,7 +22,7 @@ This is a React app which uses the Google Books API to allow users to search for
 Deployed application: https://thawing-cliffs-79687.herokuapp.com/
 
 Screenshot:
-![Google Books React Search](public/screenshot.png?raw=true "Google Books React Search")
+![Google Books React Search](./client/public/screenshot.png?raw=true "Google Books React Search")
 
 <a name="license"></a>
 ## License
