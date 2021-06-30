@@ -22,7 +22,7 @@ const useStyles = makeStyles({
 		width: 500
 	}
 });
-function Saved({title, authors, description, image, link}) {
+function Saved({title, authors, description, image, link, handleBookDelete}) {
 	const classes = useStyles();
 
 	return (
@@ -40,7 +40,7 @@ function Saved({title, authors, description, image, link}) {
 							</Box>
 							
 							<Box>
-							<Button className={classes.button}>Delete</Button> 
+							<Button className={classes.button} onClick={handleBookDelete}>Delete</Button> 
 							<Button className={classes.button} href={link}>View</Button>
 							</Box>
 						

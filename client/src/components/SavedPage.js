@@ -14,19 +14,24 @@ class SavedPage extends React.Component {
 
       getBookList() {
         API.getBooks()
-          .then(res => { console.log(res.data); this.setState({ savedBooks: res.data })})
+          .then(res => this.setState({ savedBooks: res.data }))
           .catch(err => console.log(err));
       };
 
+	  deleteBook(id){
+		API.deleteBook(id)
+		.then(res => this.getBookList())
+		.catch(err => console.log(err));
+	  }
 	render(){
 		return (
 			<Container maxWidth="md">
 				
 					<Grid container direction="column" justify="center">
 					<Grid container direction="column" justify="center">
-                    {this.state.savedBooks === undefined ? <h1>No Books saved!</h1> : this.state.savedBooks.map((book, i) => {
+                    {this.state.savedBooks === undefined || this.state.savedBooks.length === 0 ? <h1>No Books saved!</h1> : this.state.savedBooks.map((book, i) => {
                         return <Saved key={book._id} title={book.title} authors={book.authors} description={book.description}
-                        image={book.image} link= {book.link}> </Saved>
+                        image={book.image} link= {book.link} handleBookDelete={() => this.deleteBook(book._id)}> </Saved>
                     })}
                         
                     </Grid>

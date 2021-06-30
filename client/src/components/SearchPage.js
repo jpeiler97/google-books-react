@@ -14,7 +14,7 @@ class SearchPage extends React.Component {
 
       search = query => {
         API.getResults(query)
-          .then(res => { console.log(res.data.items); this.setState({ results: res.data.items })})
+          .then(res =>  this.setState({ results: res.data.items }))
           .catch(err => console.log(err));
       };
 
@@ -24,7 +24,7 @@ class SearchPage extends React.Component {
       }
 
       handleBookSave = (index) => {
-          console.log('doing something');
+  
           API.saveBook({
               title: this.state.results[index].volumeInfo.title,
             authors: this.state.results[index].volumeInfo.authors,
