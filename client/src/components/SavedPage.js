@@ -29,7 +29,7 @@ class SavedPage extends React.Component {
 				<h1 id= "saved-title">Your Saved Books</h1>
 					<Grid container direction="column" justify="center">
 					<Grid container direction="column" justify="center">
-                    {this.state.savedBooks === undefined || this.state.savedBooks.length === 0 ? <h1>No Books saved!</h1> : this.state.savedBooks.map((book, i) => {
+                    {this.state.savedBooks === undefined || this.state.savedBooks.length === 0 ? <h1 id="no-saved">No books saved! Save a book by finding a good one in the search tab.</h1> : this.state.savedBooks.map((book, i) => {
                         return <Saved key={book._id} title={book.title} authors={book.authors} description={book.description}
                         image={book.image} link= {book.link} handleBookDelete={() => this.deleteBook(book._id)}> </Saved>
                     })}

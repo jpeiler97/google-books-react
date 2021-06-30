@@ -11,9 +11,6 @@ class SearchPage extends React.Component {
       };
 
       
-      componentDidMount() {
-        this.search("harry potter");
-      }
       search = query => {
         API.getResults(query)
           .then(res =>  this.setState({ results: res.data.items }))
@@ -31,7 +28,7 @@ class SearchPage extends React.Component {
               title: this.state.results[index].volumeInfo.title,
             authors: this.state.results[index].volumeInfo.authors,
             description: this.state.results[index].volumeInfo.description,
-            image: this.state.results[index].volumeInfo.imageLinks.smallThumbnail,
+            image: this.state.results[index].volumeInfo.imageLinks ? this.state.results[index].volumeInfo.imageLinks.smallThumbnail : 'http://lgimages.s3.amazonaws.com/nc-sm.gif',
             link: this.state.results[index].volumeInfo.infoLink
         
         }).then().catch(err => console.log(err))
@@ -50,7 +47,7 @@ class SearchPage extends React.Component {
                 
                     <SearchForm handleFormSubmit={this.handleFormSubmit} search={this.state.search}  handleInputChange={this.handleInputChange}></SearchForm>
                     <Grid container direction="column" justify="center">
-                    {(this.state.results === undefined || this.state.results.length === 0) ? <h1>No Books!</h1> : this.state.results.map((result, i) => {
+                    {(this.state.results === undefined || this.state.results.length === 0) ? <h1 id="no-results">No Results</h1> : this.state.results.map((result, i) => {
                         return <Search key={result.volumeInfo.infoLink} handleBookSave = {() => this.handleBookSave(i)} title={result.volumeInfo.title} authors={result.volumeInfo.authors} description={result.volumeInfo.description}
                         image={result.volumeInfo.imageLinks === undefined ? 'http://lgimages.s3.amazonaws.com/nc-sm.gif' : result.volumeInfo.imageLinks.smallThumbnail } link= {result.volumeInfo.infoLink}></Search>
                     })}
