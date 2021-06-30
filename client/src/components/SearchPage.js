@@ -11,7 +11,9 @@ class SearchPage extends React.Component {
       };
 
       
-
+      componentDidMount() {
+        this.search("harry potter");
+      }
       search = query => {
         API.getResults(query)
           .then(res =>  this.setState({ results: res.data.items }))
@@ -50,7 +52,7 @@ class SearchPage extends React.Component {
                     <Grid container direction="column" justify="center">
                     {(this.state.results === undefined || this.state.results.length === 0) ? <h1>No Books!</h1> : this.state.results.map((result, i) => {
                         return <Search key={result.volumeInfo.infoLink} handleBookSave = {() => this.handleBookSave(i)} title={result.volumeInfo.title} authors={result.volumeInfo.authors} description={result.volumeInfo.description}
-                        image={result.volumeInfo.imageLinks === undefined ? 'http://lgimages.s3.amazonaws.com/nc-md.gif' : result.volumeInfo.imageLinks.smallThumbnail } link= {result.volumeInfo.infoLink}></Search>
+                        image={result.volumeInfo.imageLinks === undefined ? 'http://lgimages.s3.amazonaws.com/nc-sm.gif' : result.volumeInfo.imageLinks.smallThumbnail } link= {result.volumeInfo.infoLink}></Search>
                     })}
                         
                     </Grid>
