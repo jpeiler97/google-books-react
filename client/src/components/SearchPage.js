@@ -1,6 +1,7 @@
 import React from 'react';
 import { Grid, Container} from '@material-ui/core';
 import Search from './Search'
+import SearchForm from './SearchForm'
 import API from "../utils/API";
 class SearchPage extends React.Component {
 
@@ -11,22 +12,36 @@ class SearchPage extends React.Component {
 
       
       componentDidMount() {
-        this.search("harry potter");
+        this.search("books");
       }
 
       search = query => {
         API.getResults(query)
-          .then(res => { console.log(res.data.items[0].volumeInfo); this.setState({ results: res.data.items })})
+          .then(res => { console.log(res.data.items); this.setState({ results: res.data.items })})
           .catch(err => console.log(err));
       };
 
+      handleFormSubmit = (event) => {
+        event.preventDefault();
+        this.search(this.state.search);
+      }
+
+      handleInputChange = event => {
+        const name = event.target.name;
+        const value = event.target.value;
+        this.setState({
+          [name]: value
+        });
+      };
     render() {
         return (
             <Container maxWidth="md">
                 
+                    <SearchForm handleFormSubmit={this.handleFormSubmit} search={this.state.search} handleInputChange={this.handleInputChange}></SearchForm>
                     <Grid container direction="column" justify="center">
                     {this.state.results.map(result => {
-                        return <Search title={result.volumeInfo.title} ></Search>
+                        return <Search key={result.volumeInfo.infoLink} title={result.volumeInfo.title} authors={result.volumeInfo.authors} description={result.volumeInfo.description}
+                        image={result.volumeInfo.imageLinks === undefined ? 'http://lgimages.s3.amazonaws.com/nc-md.gif' : result.volumeInfo.imageLinks.smallThumbnail } link= {result.volumeInfo.infoLink}></Search>
                     })}
                         
                     </Grid>
