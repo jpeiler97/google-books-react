@@ -1,6 +1,5 @@
 import React from 'react';
-import { Card, Container } from '@material-ui/core';
-import Saved from './components/Saved';
+import SearchPage from './components/SearchPage';
 import Header from './components/Header';
 import Nav from './components/Nav';
 import './styles/styles.css';
@@ -9,6 +8,7 @@ function App() {
 		<div>
 			<Header />
 			<Nav />
+			<SearchPage/>
 		</div>
 	);
 }

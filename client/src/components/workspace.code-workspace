@@ -1,0 +1,33 @@
+{
+	"folders": [
+		{
+			"path": "..\\..\\..\\..\\class-content\\19-React"
+		},
+		{
+			"path": "..\\..\\..\\..\\class-content\\20-State"
+		},
+		{
+			"path": "..\\..\\..\\..\\hooks-app"
+		},
+		{
+			"path": "..\\..\\..\\..\\user-directory"
+		},
+		{
+			"path": "..\\..\\..\\..\\portfolio-hw"
+		},
+		{
+			"path": "..\\..\\..\\..\\class-content\\21-MERN"
+		},
+		{
+			"path": "..\\..\\.."
+		}
+	],
+	"settings": {
+		"git.ignoreLimitWarning": true,
+		"editor.defaultFormatter": "remimarsal.prettier-now",
+		"[javascript]": {
+			"editor.defaultFormatter": "remimarsal.prettier-now"
+		},
+		"liveServer.settings.multiRootWorkspaceName": "18-PWA"
+	}
+}
