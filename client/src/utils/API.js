@@ -1,10 +1,8 @@
 import axios from 'axios';
 
-const BASEURL = 'https://www.googleapis.com/books';
-const key = 'AIzaSyBODAT_L2eSPvloTPWYpRvaQcCRUSi50f4';
-
+const BASEURL = 'https://www.googleapis.com/books/v1/volumes';
 export default {
 	getResults: function(query) {
-		return axios.get(BASEURL + `?q=${query}&key=${key}`);
+		return axios.get(BASEURL + `?q=${query.trim()}`);
 	}
 };
