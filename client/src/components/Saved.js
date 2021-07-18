@@ -51,6 +51,7 @@ function Saved({title, authors, description, image, link, handleBookDelete}) {
 							
 							<Box className= {classes.infoBox}>
 							<CardContent className={classes.title}>{title}</CardContent>
+							{/* Checks if an author is provided. If multiple authors exist, a comma and space is added and separates each one, excluding the last author */}
 							<CardContent>by {authors.length === 0 ? 'Author Not Provided' : authors.map((author, i) => <span key={i}>{author}{i !== authors.length-1 ? ', ' : ''}</span>) }</CardContent>
 							<CardContent>{description}</CardContent>
 							

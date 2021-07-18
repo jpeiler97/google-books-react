@@ -10,7 +10,7 @@ class SearchPage extends React.Component {
         results: []
       };
 
-      
+      //Get search results based on user query from the Google Books API
       search = query => {
         API.getResults(query)
           .then(res =>  this.setState({ results: res.data.items }))
@@ -22,6 +22,7 @@ class SearchPage extends React.Component {
         this.search(this.state.search);
       }
 
+      //Save specific book given its index in the search results
       handleBookSave = (index) => {
   
           API.saveBook({
@@ -47,7 +48,11 @@ class SearchPage extends React.Component {
                 
                     <SearchForm handleFormSubmit={this.handleFormSubmit} search={this.state.search}  handleInputChange={this.handleInputChange}></SearchForm>
                     <Grid container direction="column" justify="center">
-                    {(this.state.results === undefined || this.state.results.length === 0) ? <h1 id="no-results">No Results</h1> : this.state.results.map((result, i) => {
+                    {/* If results come back as empty or undefined, display "No Results" */}
+                    {(this.state.results === undefined || this.state.results.length === 0) ? <h1 id="no-results">No Results</h1> 
+                    // Else, map out each result in state.results as a Search component.
+                    //If the image in results is undefined, image will be set to a placeholder image to avoid errors. 
+                    : this.state.results.map((result, i) => {
                         return <Search key={result.volumeInfo.infoLink} handleBookSave = {() => this.handleBookSave(i)} title={result.volumeInfo.title} authors={result.volumeInfo.authors} description={result.volumeInfo.description}
                         image={result.volumeInfo.imageLinks === undefined ? 'http://lgimages.s3.amazonaws.com/nc-sm.gif' : result.volumeInfo.imageLinks.smallThumbnail } link= {result.volumeInfo.infoLink}></Search>
                     })}

@@ -1,5 +1,5 @@
 import React from 'react';
-import { Grid, Card, Box, CardContent, Button} from '@material-ui/core';
+import { Grid, Card, Box, CardContent, Button, Typography} from '@material-ui/core';
 import { makeStyles } from '@material-ui/core/styles';
 
 const useStyles = makeStyles({
@@ -38,7 +38,9 @@ function Search({title, authors, description, image, link, handleBookSave}) {
 						
 							
 							<Box className= {classes.infoBox}>
-							<CardContent className={classes.title}>{title}</CardContent>
+							<CardContent className={classes.title}>
+								<Typography>{title}</Typography>
+								</CardContent>
                             {/* Maps out authors array, if not at the end of the array it will return a comma after the author's name  */}
 							<CardContent>by {authors === undefined ? 'Author Not Provided' : authors.map((author, i) => <span key={i}>{author}{i !== authors.length-1 ? ', ' : ''}</span>) }</CardContent>
 							<CardContent>{description}</CardContent>
